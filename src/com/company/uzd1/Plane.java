@@ -13,9 +13,14 @@ public class Plane extends  Exception {
             System.out.println("Vaziuokle isskleista sekmingai");
             if (number == 5) {
                 "skrendu".charAt(20);*/
+            System.out.println("OK: vaziuokle sekmingai isskleista");
 
-        } catch (VaziuoklesIsskleidimoKlaida e){
-            System.out.println("ERROR: nepavyko isskleisti vaziuokles "+ e.getPriezastis());
+        } catch (SvarbiKlaida e){
+            System.out.println("ERROR: nepavyko isskleisti vaziuokles "+ e.getPriezastis()+" SVARBI");
+        }catch (LaikinaKlaida e){
+            System.out.println("ERROR: nepavyko isskleisti vaziuokles "+ e.getPriezastis()+" LAIKINA");
+        }catch (VaziuoklesIsskleidimoKlaida e){
+            System.out.println("ERROR: nepavyko isskleisti vaziuokles "+ e.getPriezastis()+" NEAISKI");
         }
         /*catch (ArithmeticException ex) {
             System.out.println("Vaziuokle neissiskleide");
@@ -33,12 +38,12 @@ public class Plane extends  Exception {
         int number = random.nextInt(10);
         switch (number) {
             case 0:
-                throw new VaziuoklesIsskleidimoKlaida("Nuleido rata");
+                throw new SvarbiKlaida("Nuleido rata");
             case 1:
-                throw new VaziuoklesIsskleidimoKlaida("Nuluzo ratas");
+                throw new SvarbiKlaida("Nuluzo ratas");
 
             case 3:
-                throw new VaziuoklesIsskleidimoKlaida("Neveikia vairas");
+                throw new LaikinaKlaida("Neveikia vairas");
         }
     }
 }
